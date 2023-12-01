@@ -356,6 +356,8 @@
 "Assets/Scripts/FoodTrigger.cs"
 "Assets/Scripts/MainMenu.cs"
 "Assets/Scripts/PauseMenu.cs"
+"Assets/Scripts/PortalGenerator.cs"
+"Assets/Scripts/PortalTrigger.cs"
 "Assets/Scripts/SnakeMovement.cs"
 "Assets/Scripts/TailPartsMovement.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
