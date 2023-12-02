@@ -14,6 +14,8 @@ public class SnakeMovement : MonoBehaviour
 
     public GameObject tailPrefab;
 
+    public GameObject levelInfo;
+
     public Text scoreText;
     public int score;
     
@@ -25,8 +27,7 @@ public class SnakeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Score: " + levelInfo.GetComponent<LevelInfo>().score.ToString();
         transform.Translate(Vector3.forward * speed * 1.5f * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.D))
@@ -43,7 +44,7 @@ public class SnakeMovement : MonoBehaviour
     public void AddNewTailPart()
     {
 
-        score++;
+        levelInfo.GetComponent<LevelInfo>().score++;
         Vector3 positionTailPart = tailParts[tailParts.Count - 1].transform.position;
         positionTailPart.z += tailOffset;
         positionTailPart.y = 0.27f;

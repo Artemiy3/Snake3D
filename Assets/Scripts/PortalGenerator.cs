@@ -8,8 +8,8 @@ public class PortalGenerator : MonoBehaviour
     public float widthSize = 8.5f;
     public GameObject portal;
     public GameObject currentPortal;
-    public Text scoreText;
-    public GameObject snakeMovement;
+    public GameObject levelInfo;
+    public int score;
 
     void GeneratePortal()
     {
@@ -18,11 +18,11 @@ public class PortalGenerator : MonoBehaviour
         Quaternion rot;
         if (wallNumber == 0 || wallNumber == 2)
         {
-            rot = Quaternion.Euler(90, 0, 0);
+            rot = Quaternion.identity;
         }
         else
         {
-            rot = Quaternion.Euler(0, 0, 90);
+            rot = Quaternion.Euler(0, 90, 0);
         }
 
         Vector3 position = GetRandomPortalPosition(wallNumber);
@@ -39,7 +39,7 @@ public class PortalGenerator : MonoBehaviour
         {
             position = new Vector3(
                 randomPosition,
-                1.04f,
+                -0.29f,
                 9.39f
             );
         }
@@ -47,7 +47,7 @@ public class PortalGenerator : MonoBehaviour
         {
             position = new Vector3(
                 9.39f,
-                1.04f,
+                -0.29f,
                 randomPosition
             );
         }
@@ -55,7 +55,7 @@ public class PortalGenerator : MonoBehaviour
         {
             position = new Vector3(
                 randomPosition,
-                1.04f,
+                -0.29f,
                 -9.39f
             );
         }
@@ -63,7 +63,7 @@ public class PortalGenerator : MonoBehaviour
         {
             position = new Vector3(
                 -9.39f,
-                1.04f,
+                -0.29f,
                 randomPosition
             );
         }
@@ -79,8 +79,9 @@ public class PortalGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int score = snakeMovement.GetComponent<SnakeMovement>().score;
-        if (score == 10 && currentPortal == null)
+        score = levelInfo.GetComponent<LevelInfo>().score;
+
+        if (score == 3 && currentPortal == null)
         {
             GeneratePortal();
         }

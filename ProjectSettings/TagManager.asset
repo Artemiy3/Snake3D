@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SnakeHead
   - Wall
+  - GameHelper
   layers:
   - Default
   - TransparentFX

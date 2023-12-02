@@ -9,9 +9,11 @@ public class TailPartsMovement : MonoBehaviour
     public int index;
     public GameObject followingTargetObj;
     public SnakeMovement snakeHead; // Change the data type to SnakeMovement
+    public GameOverMenu gameOverMenu;
 
     void Start()
     {
+        gameOverMenu = GameObject.FindGameObjectWithTag("GameHelper").GetComponent<GameOverMenu>();
         snakeHead = GameObject.FindGameObjectWithTag("SnakeHead").GetComponent<SnakeMovement>();
         followingTargetObj = snakeHead.tailParts[snakeHead.tailParts.Count - 2];
         index = snakeHead.tailParts.IndexOf(gameObject);
@@ -35,14 +37,16 @@ public class TailPartsMovement : MonoBehaviour
         {
             if (index > 2)
             {
-                SnakeMovement snakeMovement = other.GetComponent<SnakeMovement>();
-                // Destroy the snake game object
-                foreach (var partOfChain in snakeMovement.tailParts)
-                {
-                    Destroy(partOfChain);
-                }
-                snakeMovement.tailParts.Clear();
-                Destroy(other.gameObject);
+                // SnakeMovement snakeMovement = other.GetComponent<SnakeMovement>();
+                // // Destroy the snake game object
+                // foreach (var partOfChain in snakeMovement.tailParts)
+                // {
+                //     Destroy(partOfChain);
+                // }
+                // snakeMovement.tailParts.Clear();
+                // Destroy(other.gameObject);
+
+                gameOverMenu.FailGame();
             }
         }
     }
