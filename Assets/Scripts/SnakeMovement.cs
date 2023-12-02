@@ -7,16 +7,10 @@ public class SnakeMovement : MonoBehaviour
 {
     public float speed;
     public float rotationSpeed = 250;
-
     public List<GameObject> tailParts = new List<GameObject>();
-
     public float tailOffset = -0.1f;
-
     public GameObject tailPrefab;
-
     public GameObject levelInfo;
-
-    public Text scoreText;
     public int score;
     
     void Start()
@@ -27,7 +21,6 @@ public class SnakeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + levelInfo.GetComponent<LevelInfo>().score.ToString();
         transform.Translate(Vector3.forward * speed * 1.5f * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.D))

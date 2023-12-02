@@ -7,7 +7,7 @@ public class FoodTrigger : MonoBehaviour
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("SnakeHead"))
+        if (other.gameObject.name == "Head")
         {
             other.GetComponent<SnakeMovement>().AddNewTailPart();
             Destroy(gameObject);

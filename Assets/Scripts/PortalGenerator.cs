@@ -8,7 +8,8 @@ public class PortalGenerator : MonoBehaviour
     public float widthSize = 8.5f;
     public GameObject portal;
     public GameObject currentPortal;
-    public GameObject levelInfo;
+    public GameObject levelInfoObject;
+    public LevelInfo levelInfo;
     public int score;
 
     void GeneratePortal()
@@ -74,14 +75,13 @@ public class PortalGenerator : MonoBehaviour
     void Start()
     {
         currentPortal = null;
+        levelInfo = levelInfoObject.GetComponent<LevelInfo>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        score = levelInfo.GetComponent<LevelInfo>().score;
-
-        if (score == 3 && currentPortal == null)
+        if (levelInfo.wonGame && currentPortal == null)
         {
             GeneratePortal();
         }
