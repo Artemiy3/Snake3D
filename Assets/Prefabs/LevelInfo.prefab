@@ -46,4 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   levelCount: 2
+  neededScoreForEachLevel: 0300000005000000
+  wonGame: 0
   infoText: {fileID: 651609130744549510, guid: 2e04852944c9b49a0a1c660f2966b190, type: 3}
+  isPaused: 0

@@ -16,6 +16,7 @@ public class FoodGeneration : MonoBehaviour
         currentFood = GameObject.Instantiate(foodPrefab, currentPosition, Quaternion.identity) as GameObject;
     }
 
+    // TODO: check obstacles on each level and prevent food generation inside of them
     void FoodPosition()
     {
         currentPosition = new Vector3(

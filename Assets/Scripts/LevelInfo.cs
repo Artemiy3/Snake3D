@@ -11,14 +11,17 @@ public class LevelInfo : MonoBehaviour
     public int[] neededScoreForEachLevel = new int[] {3, 5}; // length is equal to level count
     public bool wonGame;
     public Text infoText;
-    int levelNumber;
+    public int levelNumber;
+    //public bool isPaused;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("START");
         score = 0;
         levelNumber = SceneManager.GetActiveScene().buildIndex;
         wonGame = false;
+        //isPaused = false;
     }
 
     // Update is called once per frame

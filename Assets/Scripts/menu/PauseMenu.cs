@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-
+    public SnakeMovement head;
     public bool isPaused;
 
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        head = GameObject.FindGameObjectWithTag("SnakeHead").GetComponent<SnakeMovement>();
     }
 
     // Update is called once per frame
@@ -36,6 +37,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        head.isPaused = true;
+        //levelInfo.GetComponent<LevelInfo>().isPaused = true;
     }
 
     public void ResumeGame()
@@ -43,11 +46,14 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        head.isPaused = false;
+        //levelInfo.GetComponent<LevelInfo>().isPaused = false;
     }
 
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
+        //levelInfo.GetComponent<LevelInfo>().isPaused = false;
         SceneManager.LoadScene("MainMenu");
     }
 

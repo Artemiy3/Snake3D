@@ -8,8 +8,9 @@ public class PortalTrigger : MonoBehaviour
     public GameObject levelInfo;
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Head")
+        if (other.gameObject.name == "Head 1")
         {
+            Debug.Log("Something");
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             if (currentSceneIndex == levelInfo.GetComponent<LevelInfo>().levelCount)
             {
