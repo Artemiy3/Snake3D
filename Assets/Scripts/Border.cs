@@ -25,5 +25,10 @@ public class Border : MonoBehaviour
             gameHelper.GetComponent<GameOverMenu>().FailGame();
 
         }
+        else if (other.CompareTag("SnakeHead1") || other.CompareTag("SnakeHead2"))
+        {
+            gameHelper.GetComponent<GameOverMenuMult>().FailGame();
+
+        }
     }
 }

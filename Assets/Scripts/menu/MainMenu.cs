@@ -9,4 +9,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Level01");
     }
+
+    public void Multiplayer()
+    {
+        SceneManager.LoadScene("Multiplayer");
+    }
 }

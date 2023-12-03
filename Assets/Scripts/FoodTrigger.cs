@@ -12,5 +12,15 @@ public class FoodTrigger : MonoBehaviour
             other.GetComponent<SnakeMovement>().AddNewTailPart();
             Destroy(gameObject);
         }
+        else if (other.CompareTag("SnakeHead1"))
+        {
+            other.GetComponent<SnakeMovement1>().AddNewTailPart();
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("SnakeHead2"))
+        {
+            other.GetComponent<SnakeMovement2>().AddNewTailPart();
+            Destroy(gameObject);
+        }
     }
 }
