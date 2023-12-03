@@ -12,7 +12,7 @@ public class PortalGenerator : MonoBehaviour
     public LevelInfo levelInfo;
     public int score;
 
-    void GeneratePortal()
+    public void GeneratePortal()
     {
         int wallNumber = Random.Range(0, 4);
 

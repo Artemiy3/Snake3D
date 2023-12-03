@@ -10,7 +10,7 @@ public class FoodGeneration : MonoBehaviour
     public GameObject currentFood;
     public Vector3 currentPosition;
 
-    void AddFood()
+    public void AddFood()
     {
         FoodPosition();
         currentFood = GameObject.Instantiate(foodPrefab, currentPosition, Quaternion.identity) as GameObject;

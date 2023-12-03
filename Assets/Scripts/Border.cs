@@ -7,6 +7,11 @@ public class Border : MonoBehaviour
 {
     public GameObject gameHelper;
 
+    void Start()
+    {
+        gameHelper = GameObject.FindGameObjectWithTag("GameHelper");
+    }
+
     // Start is called before the first frame update
     void OnTriggerEnter(Collider other)
     {
@@ -25,10 +30,15 @@ public class Border : MonoBehaviour
             gameHelper.GetComponent<GameOverMenu>().FailGame();
 
         }
-        else if (other.CompareTag("SnakeHead1") || other.CompareTag("SnakeHead2"))
+        else if (other.CompareTag("SnakeHead1"))
         {
+            gameHelper.GetComponent<GameOverMenuMult>().winnerIs1 = false;
             gameHelper.GetComponent<GameOverMenuMult>().FailGame();
-
+        }
+        else if (other.CompareTag("SnakeHead2"))
+        {
+            gameHelper.GetComponent<GameOverMenuMult>().winnerIs1 = true;
+            gameHelper.GetComponent<GameOverMenuMult>().FailGame();
         }
     }
 }

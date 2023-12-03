@@ -10,7 +10,6 @@ public class PortalTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "Head 1")
         {
-            Debug.Log("Something");
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             if (currentSceneIndex == levelInfo.GetComponent<LevelInfo>().levelCount)
             {
@@ -20,6 +19,10 @@ public class PortalTrigger : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
+        } else if (other.CompareTag("Obstacle"))
+        {
+            GameObject.FindGameObjectWithTag("GameHelper").GetComponent<PortalGenerator>().GeneratePortal();
+            Destroy(gameObject);
         }
     }
 }

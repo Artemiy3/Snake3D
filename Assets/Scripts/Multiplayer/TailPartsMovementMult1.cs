@@ -71,19 +71,16 @@ public class TailPartsMovementMult1 : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("SnakeHead1") || other.CompareTag("SnakeHead2"))
+        if (snakeHead.tailParts.Count > 2)
         {
-            if (index > 2)
+            if (other.CompareTag("SnakeHead1"))
             {
-                // SnakeMovement snakeMovement = other.GetComponent<SnakeMovement>();
-                // // Destroy the snake game object
-                // foreach (var partOfChain in snakeMovement.tailParts)
-                // {
-                //     Destroy(partOfChain);
-                // }
-                // snakeMovement.tailParts.Clear();
-                // Destroy(other.gameObject);
-
+                gameOverMenu.winnerIs1 = false;
+                gameOverMenu.FailGame();
+            }
+        else if (other.CompareTag("SnakeHead2"))
+            {
+                gameOverMenu.winnerIs1 = true;
                 gameOverMenu.FailGame();
             }
         }

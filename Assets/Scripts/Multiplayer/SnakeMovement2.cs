@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SnakeMovement2 : MonoBehaviour
 {
-    public float speed = 3;
+    public float speed = 4.5f;
     public float rotationSpeed = 250;
     public List<GameObject> tailParts = new List<GameObject>();
     public float tailOffset = -0.3f;

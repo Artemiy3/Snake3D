@@ -9,6 +9,7 @@ TagManager:
   - GameHelper
   - SnakeHead1
   - SnakeHead2
+  - Obstacle
   layers:
   - Default
   - TransparentFX

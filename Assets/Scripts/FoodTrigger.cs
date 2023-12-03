@@ -22,5 +22,10 @@ public class FoodTrigger : MonoBehaviour
             other.GetComponent<SnakeMovement2>().AddNewTailPart();
             Destroy(gameObject);
         }
+        else if (other.CompareTag("Obstacle") || other.CompareTag("Wall"))
+        {
+            GameObject.FindGameObjectWithTag("GameHelper").GetComponent<FoodGeneration>().AddFood();
+            Destroy(gameObject);
+        }
     }
 }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameOverMenuMult : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class GameOverMenuMult : MonoBehaviour
     public GameObject levelInfo;
     public SnakeMovement1 head1;
     public SnakeMovement2 head2;
+    public bool winnerIs1;
+    public TMP_Text gameOverText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,14 @@ public class GameOverMenuMult : MonoBehaviour
 
     public void FailGame()
     {
+        if (winnerIs1)
+        {
+            gameOverText.text = "Green player won!";
+        }
+        else
+        {
+            gameOverText.text = "Red player won!";
+        }
         gameOverMenu.SetActive(true);
         //levelInfo.GetComponent<LevelInfo>().isPaused = true;
         head1.isPaused = true;
