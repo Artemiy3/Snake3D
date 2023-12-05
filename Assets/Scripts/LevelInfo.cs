@@ -7,27 +7,28 @@ using UnityEngine.SceneManagement;
 public class LevelInfo : MonoBehaviour
 {
     public int score;
-    public int levelCount = 2;
-    public int[] neededScoreForEachLevel = new int[] {3, 5}; // length is equal to level count
+    public int levelCount = 5;
+    public int[] neededScoreForEachLevel = new int[] {3, 5, 8, 13, 21}; // length is equal to level count
     public bool wonGame;
     public Text infoText;
     public int levelNumber;
-    //public bool isPaused;
-
-    // Start is called before the first frame update
+    public AudioSource audioSource;
+    public AudioClip portalClip;
+    public AudioSource music;
     void Start()
     {
-        Debug.Log("START");
         score = 0;
         levelNumber = SceneManager.GetActiveScene().buildIndex;
         wonGame = false;
-        //isPaused = false;
+        audioSource = GameObject.FindGameObjectWithTag("GameHelper").GetComponent<AudioSource>();
+        audioSource.PlayOneShot(portalClip, 1f);
+        music.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        infoText.text = "Score: " + score.ToString() + "\nLevel: " + levelNumber;
+        infoText.text = "Score: " + score.ToString() + "/" + neededScoreForEachLevel[levelNumber - 1].ToString() + "\nLevel: " + levelNumber;
         if (score >= neededScoreForEachLevel[levelNumber - 1])
         {
             wonGame = true;

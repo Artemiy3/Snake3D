@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a21ba1bf2de74c5ea8fe872203db4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameHelper: {fileID: 0}
+  audioSource: {fileID: 0}
+  eatClip: {fileID: 8300000, guid: 0d8fc1639db2d4643a36f017b6046b96, type: 3}
 --- !u!135 &-5998812092221282203
 SphereCollider:
   m_ObjectHideFlags: 0

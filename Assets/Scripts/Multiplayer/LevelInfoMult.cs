@@ -9,22 +9,21 @@ public class LevelInfoMult : MonoBehaviour
     public int score1;
     public int score2;
     public Text infoText;
-    //public bool isPaused;
-
-    // Start is called before the first frame update
+    public AudioSource audioSource;
+    public AudioClip portalClip;
+    public AudioSource music;
     void Start()
     {
         score1 = 0;
         score2 = 0;
+        audioSource = GameObject.FindGameObjectWithTag("GameHelper").GetComponent<AudioSource>();
+        audioSource.PlayOneShot(portalClip, 1f);
+        music.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
         infoText.text = "Green player score: " + score1.ToString() + "\nRed player score: " + score2.ToString();
-        // if (score >= neededScoreForEachLevel[levelNumber - 1])
-        // {
-        //     wonGame = true;
-        // }
     }
 }

@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class PortalTrigger : MonoBehaviour
 {
     public GameObject levelInfo;
+    public AudioSource audioSource;
+    public AudioClip portalClip;
+
+    void Start()
+    {
+        audioSource = GameObject.FindGameObjectWithTag("GameHelper").GetComponent<AudioSource>();
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Head 1")

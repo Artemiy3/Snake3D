@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  levelCount: 2
-  neededScoreForEachLevel: 0300000005000000
+  levelCount: 5
+  neededScoreForEachLevel: 0300000005000000080000000d00000015000000
   wonGame: 0
   infoText: {fileID: 651609130744549510, guid: 2e04852944c9b49a0a1c660f2966b190, type: 3}
-  isPaused: 0
+  levelNumber: 0
+  audioSource: {fileID: 0}
+  portalClip: {fileID: 8300000, guid: e3174188fadd64eca924c202258944b1, type: 3}

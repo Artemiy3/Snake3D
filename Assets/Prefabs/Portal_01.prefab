@@ -90,3 +90,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelInfo: {fileID: 7090087463871672071, guid: da857fa1c33f148f58ded6ebb25c4a3a, type: 3}
+  audioSource: {fileID: 0}
+  portalClip: {fileID: 8300000, guid: e3174188fadd64eca924c202258944b1, type: 3}

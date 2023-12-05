@@ -13,6 +13,9 @@ public class GameOverMenuMult : MonoBehaviour
     public SnakeMovement2 head2;
     public bool winnerIs1;
     public TMP_Text gameOverText;
+    public AudioSource audioSource;
+    public AudioClip gameOverClip;
+    public AudioSource music;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +23,12 @@ public class GameOverMenuMult : MonoBehaviour
         gameOverMenu.SetActive(false);
         head1 = GameObject.FindGameObjectWithTag("SnakeHead1").GetComponent<SnakeMovement1>();
         head2 = GameObject.FindGameObjectWithTag("SnakeHead2").GetComponent<SnakeMovement2>();
+        audioSource = GameObject.FindGameObjectWithTag("GameHelper").GetComponent<AudioSource>();
     }
 
     public void FailGame()
     {
+        audioSource.PlayOneShot(gameOverClip, 0.5f);
         if (winnerIs1)
         {
             gameOverText.text = "Green player won!";
@@ -36,6 +41,7 @@ public class GameOverMenuMult : MonoBehaviour
         //levelInfo.GetComponent<LevelInfo>().isPaused = true;
         head1.isPaused = true;
         head2.isPaused = true;
+        music.Stop();
         Time.timeScale = 0f;
     }
 
